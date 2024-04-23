@@ -1,7 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using LAWebApplication.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<LAWebApplicationContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("LAWebApplicationContext") ?? throw new InvalidOperationException("Connection string 'LAWebApplicationContext' not found.")));
 
 var app = builder.Build();
 
