@@ -5,38 +5,24 @@
     ViewData["Title"] = "GESTIÓN LEARNING AGREEMENT";
 }
 
-<h1>Index</h1>
+<h1>LOG IN</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Class1[0].Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Class1[0].password)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Class1) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div>
+    <label for="Id">ID:</label>
+    <input type="text" id="Id" name="Id" />
+</div>
+
+<div>
+    @Html.Raw(ViewBag.MensajeError)
+</div>
+
+<div>
+    <label for="Password">Password:</label>
+    <input type="password" id="Password" name="Password" />
+</div>
+
+
+<div>
+    <input type="button" value="Iniciar sesión" />
+</div>

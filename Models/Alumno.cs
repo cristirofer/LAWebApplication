@@ -2,12 +2,10 @@
 
 namespace LAWebApplication.Models
 {
-    public class Class1
+    public class Alumno
     {
         public string Id { get; set; }
         public string password { get; set; }
-        [DataType(DataType.Date)]
-        public DateTime ReleaseDate { get; set; }
         
     }
 }

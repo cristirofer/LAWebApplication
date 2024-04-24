@@ -12,7 +12,7 @@ namespace LAWebApplication.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Class1",
+                name: "Alumno",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -21,7 +21,7 @@ namespace LAWebApplication.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Class1", x => x.Id);
+                    table.PrimaryKey("PK_Alumno", x => x.Id);
                 });
         }
 
@@ -29,7 +29,7 @@ namespace LAWebApplication.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Class1");
+                name: "Alumno");
         }
     }
 }

@@ -25,7 +25,7 @@ namespace LAWebApplication.Pages
         }
 
         [BindProperty]
-        public Class1 Class1 { get; set; } = default!;
+        public Alumno Alumno { get; set; } = default!;
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,7 +35,7 @@ namespace LAWebApplication.Pages
                 return Page();
             }
 
-            _context.Class1.Add(Class1);
+            _context.Alumno.Add(Alumno);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

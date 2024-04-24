@@ -14,6 +14,6 @@ namespace LAWebApplication.Data
         {
         }
 
-        public DbSet<LAWebApplication.Models.Class1> Class1 { get; set; } = default!;
+        public DbSet<LAWebApplication.Models.Alumno> Alumno { get; set; } = default!;
     }
 }

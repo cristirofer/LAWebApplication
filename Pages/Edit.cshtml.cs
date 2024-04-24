@@ -21,7 +21,7 @@ namespace LAWebApplication.Pages
         }
 
         [BindProperty]
-        public Class1 Class1 { get; set; } = default!;
+        public Alumno Alumno { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -30,12 +30,12 @@ namespace LAWebApplication.Pages
                 return NotFound();
             }
 
-            var class1 =  await _context.Class1.FirstOrDefaultAsync(m => m.Id == id);
-            if (class1 == null)
+            var Alumno =  await _context.Alumno.FirstOrDefaultAsync(m => m.Id == id);
+            if (Alumno == null)
             {
                 return NotFound();
             }
-            Class1 = class1;
+            Alumno = Alumno;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace LAWebApplication.Pages
                 return Page();
             }
 
-            _context.Attach(Class1).State = EntityState.Modified;
+            _context.Attach(Alumno).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace LAWebApplication.Pages
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!Class1Exists(Class1.Id))
+                if (!AlumnoExists(Alumno.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace LAWebApplication.Pages
             return RedirectToPage("./Index");
         }
 
-        private bool Class1Exists(string id)
+        private bool AlumnoExists(string id)
         {
-            return _context.Class1.Any(e => e.Id == id);
+            return _context.Alumno.Any(e => e.Id == id);
         }
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LAWebApplication.Data;
 using LAWebApplication.Models;
+using System.Drawing.Printing;
 
 namespace LAWebApplication.Pages
 {
@@ -19,14 +20,33 @@ namespace LAWebApplication.Pages
             _context = context;
         }
 
-        public IList<Class1> Class1 { get;set; } = default!;
+        public IActionResult IniciarSesion(string Id, string Password)
+        {
+            // Verifica las credenciales (aquí deberías consultar una base de datos o algún otro método de autenticación)
+            if (Id == "usuario" && Password == "contraseña")
+            {
+                // Usuario autenticado correctamente
+                return RedirectToAction("PaginaPrincipal");
+            }
+            else
+            {
+                // Credenciales incorrectas, muestra un mensaje de error
+                string MensajeError = "Credenciales inválidas";
+                return MensajeError;
+            }
+        }
+
+        
+
+        public IList<Alumno> Alumno { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Class1 != null)
+            if (_context.Alumno != null)
             {
-                Class1 = await _context.Class1.ToListAsync();
+                Alumno = await _context.Alumno.ToListAsync();
             }
         }
+
     }
 }

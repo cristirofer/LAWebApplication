@@ -19,7 +19,7 @@ namespace LAWebApplication.Pages
             _context = context;
         }
 
-        public Class1 Class1 { get; set; } = default!;
+        public Alumno Alumno { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(string id)
         {
@@ -28,14 +28,14 @@ namespace LAWebApplication.Pages
                 return NotFound();
             }
 
-            var class1 = await _context.Class1.FirstOrDefaultAsync(m => m.Id == id);
-            if (class1 == null)
+            var Alumno = await _context.Alumno.FirstOrDefaultAsync(m => m.Id == id);
+            if (Alumno == null)
             {
                 return NotFound();
             }
             else
             {
-                Class1 = class1;
+                Alumno = Alumno;
             }
             return Page();
         }
