@@ -30,9 +30,8 @@ namespace LAWebApplication.Pages
             }
             else
             {
-                // Credenciales incorrectas, muestra un mensaje de error
-                string MensajeError = "Credenciales inválidas";
-                return MensajeError;
+                Console.WriteLine("Credenciales incorrectas. Inténtalo nuevamente.");
+                return RedirectToAction("PaginaPrincipal"); ;
             }
         }
 
