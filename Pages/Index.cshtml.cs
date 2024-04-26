@@ -22,6 +22,7 @@ namespace LAWebApplication.Pages
 
         public IActionResult IniciarSesion(string Id, string Password)
         {
+            string script = "<script>document.getElementById('incorrectLabel').style.visibility = 'hidden';</script>";
             // Verifica las credenciales (aquí deberías consultar una base de datos o algún otro método de autenticación)
             if (Id == "usuario" && Password == "contraseña")
             {
@@ -30,8 +31,8 @@ namespace LAWebApplication.Pages
             }
             else
             {
-                Console.WriteLine("Credenciales incorrectas. Inténtalo nuevamente.");
-                return RedirectToAction("PaginaPrincipal"); ;
+                script = "<script>document.getElementById('incorrectLabel').style.visibility = 'visible';</script>";
+                return RedirectToAction("PaginaPrincipal");
             }
         }
 
